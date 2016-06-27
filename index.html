@@ -46,11 +46,13 @@
 
 	<div class="input_wrap">
 		<input
-				id="nonconverted"
-				class="aa_case__untitled input_field"
-				type="text"
-				tabindex="1"
-				placeholder="Turn me into a title case" />
+			id="nonconverted"
+			class="aa_case__untitled input_field"
+			type="text"
+			tabindex="1"
+			placeholder="Turn me into a title case"
+			data-clipboard-target="#converted"
+		 />
 		<button class="btn" data-clipboard-target="#nonconverted">
 		    <img src="https://clipboardjs.com/assets/images/clippy.svg" width="50">
 		</button>
@@ -62,19 +64,17 @@
 			<input
 				id="converted"
 				class="aa_case__display input_field"
-				contenteditable="true"
-				tabindex="2"
 				value="Turn Me Into a Title Case"
 				/>
 				<!-- Trigger -->
 			<button class="btn" data-clipboard-target="#converted">
-			    <img src="https://clipboardjs.com/assets/images/clippy.svg" width="50">
+			    <img src="https://clipboardjs.com/assets/images/clippy.svg" width="50" tabindex="2">
 			</button>
 		</div>
 		<!-- /.input_wrap -->
 
 		<p class="aa_case__copy" >
-			<span>TIP:</span> Write or paste the title, Click the  <img src="https://clipboardjs.com/assets/images/clippy.svg" width="10"> button to copy the title in clipboard.
+			<span>TIP:</span>Write or paste the title, Click the  <img src="https://clipboardjs.com/assets/images/clippy.svg" width="10"> button to copy the title in clipboard.
 		</p>
 	</div>
 </form>

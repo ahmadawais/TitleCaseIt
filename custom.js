@@ -32,10 +32,6 @@ $(document).ready(function() {
 	    return actionMsg;
 	}
 
-
-		// Define the button as CB,js
-		var clipboard = new Clipboard('.btn');
-
 		// Title Case Conversions.
 		String.prototype.toTitleCase = function() {
 				var smallWords = /^(a|an|and|as|at|but|by|en|for|if|in|nor|of|on|or|per|the|to|vs?\.?|via)$/i;
@@ -64,7 +60,6 @@ $(document).ready(function() {
 		$(".aa_case__untitled").focus();
 		$(".aa_case__untitled").bind('input change paste keyup mouseup', function(event) {
 				var _this = this;
-
 				// Short pause to wait for paste to complete.
 				setTimeout(function() {
 						var text = $(_this).val();
@@ -79,20 +74,23 @@ $(document).ready(function() {
 		 *
 		 * @since 1.0.1
 		 */
+		// Define the button as CB,js
+		var clipboard = new Clipboard('.btn');
 		$('.btn').on('click', function(e) {
 				e.preventDefault();
 				clipboard.on('success', function(e) {
 						e.clearSelection();
 						showTooltip(e.trigger, 'COPIED! 💯');
 						// $('.btn').html('💯 COPIED!');
-						console.info('Action:', e.action);
-						console.info('Text:', e.text);
+						// console.info('Action:', e.action);
+						// console.info('Text:', e.text);
 						e.clearSelection();
 				});
 
 				clipboard.on('error', function(e) {
-						console.error('Action:', e.action);
-						console.error('Trigger:', e.trigger);
+						showTooltip(e.trigger, 'Error! Use the latest browser. Works best in Chrome!');
+						// console.error('Action:', e.action);
+						// console.error('Trigger:', e.trigger);
 				});
 		});
 
