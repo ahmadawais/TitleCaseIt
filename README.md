@@ -4,9 +4,10 @@ Check it out https://ahmadawais.github.io/TitleCaseIt
 
 ![TitleCaseIt](https://i.imgur.com/IoZQh1Y.png)
 
+###How To?
 - Write or Paste the title.
 - Click the copy button to copy the title in your clipboard.
 
-Optionally:
+###Optionally:
 - Write or Paste the title.
 - Press `tab` and then press <kbd>ENTER or RETURN</kbd> and the title will be copied to your clipboard.
