@@ -89,6 +89,20 @@
    border-bottom: 1px solid;
  }
 
+ h1 > i {
+     font-size: 1rem;
+     font-family: monospace;
+     background: goldenrod;
+     position: absolute;
+     padding: 0.3rem 0.6rem;
+     font-style: normal;
+     top: 2rem;
+     box-shadow: 0 27px 55px 0 rgba(0, 0, 0, 0.3), 0 17px 17px 0 rgba(0, 0, 0, 0.15);
+     background: -webkit-linear-gradient(0deg, #F09819 10%, #EDDE5D 90%);
+     background: linear-gradient(90deg, #F09819 10%, #EDDE5D 90%);
+ }
+
+
  .aa_case__untitled {
    display: table;
    width: 80%;
