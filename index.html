@@ -8,9 +8,10 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-	<script type="text/javascript" src="custom.js"></script>
+	<script src="https://cdn.jsdelivr.net/clipboard.js/1.5.12/clipboard.min.js"></script>
 
-	<link rel="apple-touch-icon" sizes="57x57" href="/TitleCaseIt/favicons/apple-touch-icon-57x57.png">
+
+	<!-- <link rel="apple-touch-icon" sizes="57x57" href="/TitleCaseIt/favicons/apple-touch-icon-57x57.png">
 	<link rel="apple-touch-icon" sizes="60x60" href="/TitleCaseIt/favicons/apple-touch-icon-60x60.png">
 	<link rel="apple-touch-icon" sizes="72x72" href="/TitleCaseIt/favicons/apple-touch-icon-72x72.png">
 	<link rel="apple-touch-icon" sizes="76x76" href="/TitleCaseIt/favicons/apple-touch-icon-76x76.png">
@@ -31,7 +32,7 @@
 	<meta name="msapplication-TileColor" content="#000000">
 	<meta name="msapplication-TileImage" content="/TitleCaseIt/favicons/mstile-144x144.png">
 	<meta name="msapplication-config" content="/TitleCaseIt/favicons/browserconfig.xml">
-	<meta name="theme-color" content="#ffffff">
+	<meta name="theme-color" content="#ffffff"> -->
 
 </head>
 <body>
@@ -42,25 +43,43 @@
 </h1>
 
 <form class="aa_case">
-	<input 	class="aa_case__untitled"
-			type="text"
-			tabindex="1"
-			placeholder="Turn me into a title case" />
+
+	<div class="input_wrap">
+		<input
+				id="nonconverted"
+				class="aa_case__untitled input_field"
+				type="text"
+				tabindex="1"
+				placeholder="Turn me into a title case" />
+		<button class="btn" data-clipboard-target="#nonconverted">
+		    <img src="https://clipboardjs.com/assets/images/clippy.svg" width="50">
+		</button>
+	</div>
+	<!-- /.inputAddon -->
 
 	<div class="aa_case__convert">
-		<p class="aa_case__display"
-			contenteditable="true"
-			tabindex="2"
-			>
-			Turn Me Into a Title Case
-		</p>
+		<div class="input_wrap">
+			<input
+				id="converted"
+				class="aa_case__display input_field"
+				contenteditable="true"
+				tabindex="2"
+				value="Turn Me Into a Title Case"
+				/>
+				<!-- Trigger -->
+			<button class="btn" data-clipboard-target="#converted">
+			    <img src="https://clipboardjs.com/assets/images/clippy.svg" width="50">
+			</button>
+		</div>
+		<!-- /.input_wrap -->
 
 		<p class="aa_case__copy" >
-			<span>TIP:</span> Write or paste the title, press <span>TAB</span> and then <span>CMD/CTRL + C</span> to copy the converted title case.
+			<span>TIP:</span> Write or paste the title, Click the  <img src="https://clipboardjs.com/assets/images/clippy.svg" width="10"> button to copy the title in clipboard.
 		</p>
 	</div>
 </form>
 
 
+<script type="text/javascript" src="custom.js"></script>
 </body>
 </html>
