@@ -1,6 +1,5 @@
 # TitleCaseIt
-Convert your title and headings into Title Case.
-Check it out https://ahmadawais.github.io/TitleCaseIt
+Convert your title and headings into Title Case. Check it out at [TitleCaseIt.AhmadAwais.com](http://titlecaseit.ahmadawais.com/)
 
 ![TitleCaseIt](https://i.imgur.com/IoZQh1Y.png)
 
