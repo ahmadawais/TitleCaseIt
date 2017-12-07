@@ -61,7 +61,7 @@ $( document ).ready( function() {
 				// Short pause to wait for paste to complete.
 				setTimeout( function() {
 					var text = $( _this ).val();
-					var tcase = text.toTitleCase();
+					var tcase = text.toLowerCase().toTitleCase();
 					$( ".aa_case__display" ).val( tcase );
 					// $( ".aa_case__display" ).val( tcase );
 				}, 100 );
