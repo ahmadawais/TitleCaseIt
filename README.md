@@ -3,7 +3,7 @@ Convert your title and headings into Title Case. Check it out at [TitleCaseIt.Ah
 
 ![TitleCaseIt](https://i.imgur.com/IoZQh1Y.png)
 
-### How To?
+### How To Use?
 - Write or Paste the title.
 - Click the copy button to copy the title in your clipboard.
 
