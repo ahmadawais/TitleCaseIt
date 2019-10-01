@@ -1,5 +1,5 @@
 # TitleCaseIt
-Convert your title and headings into Title Case. Check it out at [TitleCaseIt.AhmadAwais.com](http://titlecaseit.ahmadawais.com/)
+Convert your title and headings into Title Case. If you write lots and lots of content, then this tool is definitely for you to explore. Check it out at [TitleCaseIt.AhmadAwais.com](http://titlecaseit.ahmadawais.com/)
 
 ![TitleCaseIt](https://i.imgur.com/IoZQh1Y.png)
 
