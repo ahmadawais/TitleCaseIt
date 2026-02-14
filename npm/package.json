@@ -1,0 +1,40 @@
+{
+	"name": "titlecaseit",
+	"version": "1.0.0",
+	"description": "Convert any text to title case.",
+	"main": "index.js",
+	"module": "index.mjs",
+	"exports": {
+		".": {
+			"import": "./index.mjs",
+			"require": "./index.js"
+		}
+	},
+	"files": [
+		"index.js",
+		"index.mjs"
+	],
+	"scripts": {
+		"test": "node -e \"var tc = require('./index.js'); var pass = tc('the quick brown fox') === 'The Quick Brown Fox'; console.log(pass ? 'PASS' : 'FAIL'); process.exit(pass ? 0 : 1)\""
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/ahmadawais/TitleCaseIt.git"
+	},
+	"keywords": [
+		"title-case",
+		"titlecase",
+		"title",
+		"case",
+		"convert",
+		"text",
+		"string",
+		"capitalize"
+	],
+	"author": "Ahmad Awais (https://AhmadAwais.com)",
+	"license": "GPL-2.0",
+	"bugs": {
+		"url": "https://github.com/ahmadawais/TitleCaseIt/issues"
+	},
+	"homepage": "https://titlecaseit.ahmadawais.com"
+}

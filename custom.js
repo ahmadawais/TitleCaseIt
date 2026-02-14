@@ -6,52 +6,49 @@
  */
 $( document ).ready( function() {
 
-		// Title Case Conversions.
-		String.prototype.toTitleCase = function() {
-				var smallWords = /^( a|an|and|as|at|but|by|en|for|if|in|nor|of|on|or|per|the|to|vs?\.?|via )$/i;
-
-				return this.replace( /[A-Za-z0-9\u00C0-\u00FF]+[^\s-]*/g, function( match, index, title ) {
-						if ( index > 0 && index + match.length !== title.length &&
-								match.search( smallWords ) > -1 && title.charAt( index - 2 ) !== ":" &&
-								( title.charAt( index + match.length ) !== '-' || title.charAt( index - 1 ) === '-' ) &&
-								title.charAt( index - 1 ).search( /[^\s-]/ ) < 0 ) {
-								return match.toLowerCase();
-						}
-
-						if ( match.substr( 1 ).search( /[A-Z]|\../ ) > -1 ) {
-								return match;
-						}
-
-						return match.charAt( 0 ).toUpperCase() + match.substr( 1 );
-				} );
-		};
-
 		/**
 		 * Auto-copy to clipboard after 300ms debounce.
+		 * Uses titlecaseit npm package loaded via CDN.
 		 */
 		var copyTimer = null;
 
+		function flashCopied() {
+			var el = $( '.aa_case__display' );
+			el.removeClass( 'is-copied' );
+			el[0].offsetWidth; // Force reflow.
+			el.addClass( 'is-copied' );
+		}
+
 		function copyToClipboard( text ) {
 			if ( ! text ) return;
+
+			// Modern async clipboard API.
 			if ( navigator.clipboard && navigator.clipboard.writeText ) {
 				navigator.clipboard.writeText( text ).then( function() {
-					// Flash the output field.
-					var el = $( '.aa_case__display' );
-					el.removeClass( 'is-copied' );
-					el[0].offsetWidth; // Force reflow.
-					el.addClass( 'is-copied' );
-
-					// Analytics.
-					ga( 'send', 'event', 'TitleCaseIt', 'copied', 'success' );
-
-					// Intercom Event.
-					Intercom( 'trackEvent', 'TitleCaseIt', {
-						title: text,
-						copied: 'YES',
-						email: 'TitleCaseIt@ahmadawais.com',
-					} );
+					flashCopied();
 				} );
+			} else {
+				// Fallback for non-HTTPS or older browsers.
+				var ta = document.createElement( 'textarea' );
+				ta.value = text;
+				ta.style.position = 'fixed';
+				ta.style.opacity = '0';
+				document.body.appendChild( ta );
+				ta.select();
+				document.execCommand( 'copy' );
+				document.body.removeChild( ta );
+				flashCopied();
 			}
+
+			// Analytics.
+			ga( 'send', 'event', 'TitleCaseIt', 'copied', 'success' );
+
+			// Intercom Event.
+			Intercom( 'trackEvent', 'TitleCaseIt', {
+				title: text,
+				copied: 'YES',
+				email: 'TitleCaseIt@ahmadawais.com',
+			} );
 		}
 
 		/**
@@ -70,7 +67,7 @@ $( document ).ready( function() {
 				// Short pause to wait for paste to complete.
 				setTimeout( function() {
 					var text = $( _this ).val();
-					var tcase = text.toLowerCase().toTitleCase();
+					var tcase = titleCaseIt( text.toLowerCase() );
 					$( ".aa_case__display" ).val( tcase );
 
 					// Auto-copy after 300ms of no typing.

@@ -200,7 +200,7 @@ h1 > i {
 }
 
 .aa_footer a {
-	color: #fff;
+	color: #000;
 	text-decoration: underline;
 	transition: all 0.4s linear;
 }

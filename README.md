@@ -1,32 +1,62 @@
 # TitleCaseIt
-Convert your title and headings into Title Case. If you write lots and lots of content, then this tool is definitely for you to explore. Check it out at [TitleCaseIt.AhmadAwais.com](http://titlecaseit.ahmadawais.com/)
+
+[![npm](https://img.shields.io/npm/v/titlecaseit.svg?style=flat-square)](https://www.npmjs.com/package/titlecaseit)
+
+> Convert any text to title case.
 
 ![TitleCaseIt](https://i.imgur.com/IoZQh1Y.png)
 
-### How To Use?
-- Write or Paste the title.
-- Click the copy button to copy the title in your clipboard.
+## Web App
 
-### Optionally:
-- Write or Paste the title.
-- Press <kbd>TAB</kbd> and then press <kbd>ENTER or RETURN</kbd> and the title will be copied to your clipboard.
+Use the free web tool at [TitleCaseIt.AhmadAwais.com](https://titlecaseit.ahmadawais.com/)
+
+## Install
+
+```sh
+npm install titlecaseit
+```
+
+## Usage
+
+### Node.js (CommonJS)
+
+```js
+const titleCaseIt = require('titlecaseit');
+
+titleCaseIt('the quick brown fox');
+//=> 'The Quick Brown Fox'
+
+titleCaseIt('a tale of two cities');
+//=> 'A Tale of Two Cities'
+```
+
+### Node.js (ESM)
+
+```js
+import titleCaseIt from 'titlecaseit';
+
+titleCaseIt('the quick brown fox');
+//=> 'The Quick Brown Fox'
+```
+
+### Browser (CDN)
+
+```html
+<script src="https://unpkg.com/titlecaseit"></script>
+<script>
+  console.log(titleCaseIt('hello world'));
+  //=> 'Hello World'
+</script>
+```
+
+## How It Works
+
+Words like `a`, `an`, `the`, `and`, `but`, `or`, `for`, `nor`, `on`, `at`, `to`, `by`, `in`, `of`, `per`, `vs`, `via`, `en`, `as`, `if` are kept lowercase unless they are the first or last word. Words with internal capitals (like `iPhone`) or dots (like `U.S.A.`) are left unchanged.
 
 ## Changelog
 
-### Version 2.0.0 
-- Add to clipboard.
-- Tab index for quick operation.
-- Flexbox design :)
-
-### Version 1.0.1 to Version 1.0.9
-- Beta updates.
-- Cross browser issues fixed.
-- Several lingo updates.
-
-### Version 1.0.0
-- Basic App.
+Read the [CHANGELOG.md](CHANGELOG.md) for details.
 
 ## License
-Licensed under GNU GPL v2.0. Copyright (C) [Ahmad Awais](http://AhmadAwais.com/).
 
-
+GPL-2.0 (C) [Ahmad Awais](https://AhmadAwais.com/)
