@@ -89,6 +89,13 @@ h1 .aa_h1__inner span {
 h1 a {
  text-decoration: underline;
  color: #000;
+ transition: all 0.4s linear;
+}
+
+h1 a:hover {
+ background: #EDDE5D;
+ background: linear-gradient(90deg, #F09819 10%, #EDDE5D 90%);
+ color: #000;
 }
 
 h1 > i {
