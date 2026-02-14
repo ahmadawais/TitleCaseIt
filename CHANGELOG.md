@@ -1,5 +1,23 @@
 ## Changelog
 
+### Version 3.1.0
+- Removed jQuery — rewritten in vanilla JS, zero dependencies
+- Removed dead Universal Analytics and Intercom scripts
+- Added GA4 tracking (G-8PD00XM2B8) with `titlecasedit` event
+- Tracks input/output title text as custom event parameters
+- Rotating placeholder examples every 4 seconds
+- Down-arrow indicator between input and output
+- "Copied!" toast notification on auto-copy
+- Click output box to copy
+- Keyboard-accessible focus rings (`:focus-visible`)
+- White subtitle and tip text for better contrast on gradient
+- Bigger, bolder inputs with golden glow on focus
+- Output box hover lift and cursor pointer
+- Responsive mobile layout — vertically centered, native feel
+- Safe area insets for notched devices
+- `text-wrap: balance` on mobile tip
+- Cache-busted CSS and JS with `?v=3.1.0`
+
 ### Version 3.0.0
 - Auto-copy to clipboard after 300ms of no typing
 - Press Enter to copy instantly
