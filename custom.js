@@ -2,35 +2,9 @@
  * Title Case Conversions.
  *
  * @author Ahmad Awais https://github.com/ahmadawais/TitleCaseIt
- * @version 2.0.1
+ * @version 3.0.0
  */
 $( document ).ready( function() {
-
-	var btns = document.querySelectorAll( '.btn' );
-	for ( var i = 0; i < btns.length; i++ ) {
-		btns[i].addEventListener( 'mouseleave', function( e ) {
-			e.currentTarget.setAttribute( 'class', 'btn' );
-			e.currentTarget.removeAttribute( 'aria-label' );
-		} );
-	}
-
-	function showTooltip( elem, msg ) {
-		elem.setAttribute( 'class', 'btn tooltipped tooltipped-s' );
-		elem.setAttribute( 'aria-label', msg );
-	}
-
-	function fallbackMessage( action ) {
-		var actionMsg = '';
-		var actionKey = ( action === 'cut' ? 'X' : 'C' );
-		if ( /iPhone|iPad/i.test( navigator.userAgent ) ) {
-			actionMsg = 'No support :( ';
-		} else if ( /Mac/i.test( navigator.userAgent ) ) {
-			actionMsg = 'Press ⌘-' + actionKey + ' to ' + action;
-		} else {
-			actionMsg = 'Press Ctrl-' + actionKey + ' to ' + action;
-		}
-		return actionMsg;
-	}
 
 		// Title Case Conversions.
 		String.prototype.toTitleCase = function() {
@@ -53,9 +27,44 @@ $( document ).ready( function() {
 		};
 
 		/**
-		 * Live input to p title change.
+		 * Auto-copy to clipboard after 300ms debounce.
+		 */
+		var copyTimer = null;
+
+		function copyToClipboard( text ) {
+			if ( ! text ) return;
+			if ( navigator.clipboard && navigator.clipboard.writeText ) {
+				navigator.clipboard.writeText( text ).then( function() {
+					// Flash the output field.
+					var el = $( '.aa_case__display' );
+					el.removeClass( 'is-copied' );
+					el[0].offsetWidth; // Force reflow.
+					el.addClass( 'is-copied' );
+
+					// Analytics.
+					ga( 'send', 'event', 'TitleCaseIt', 'copied', 'success' );
+
+					// Intercom Event.
+					Intercom( 'trackEvent', 'TitleCaseIt', {
+						title: text,
+						copied: 'YES',
+						email: 'TitleCaseIt@ahmadawais.com',
+					} );
+				} );
+			}
+		}
+
+		/**
+		 * Live input to title case conversion + auto-copy.
 		 */
 		$( ".aa_case__untitled" ).focus();
+		$( ".aa_case__untitled" ).on( 'keydown', function( event ) {
+			if ( event.which === 13 ) {
+				event.preventDefault();
+				var tcase = $( ".aa_case__display" ).val();
+				copyToClipboard( tcase );
+			}
+		} );
 		$( ".aa_case__untitled" ).bind( 'input change paste keyup mouseup', function( event ) {
 				var _this = this;
 				// Short pause to wait for paste to complete.
@@ -63,79 +72,31 @@ $( document ).ready( function() {
 					var text = $( _this ).val();
 					var tcase = text.toLowerCase().toTitleCase();
 					$( ".aa_case__display" ).val( tcase );
-					// $( ".aa_case__display" ).val( tcase );
+
+					// Auto-copy after 300ms of no typing.
+					clearTimeout( copyTimer );
+					copyTimer = setTimeout( function() {
+						copyToClipboard( tcase );
+					}, 300 );
 				}, 100 );
 		} );
 
 		/**
 		 * On Select.
 		 *
-		 * Run analytics if user doesn't copy and selects instead.
+		 * Run analytics if user selects the output.
 		 */
 		var theTitleCased = $( '.aa_case__display' );
 
 		theTitleCased.select( function() {
-			// Console Log.
-			console.log( 'Selected: ' );
-
-
-			// Analytics.
 			ga( 'send', 'event', 'TitleCaseIt', 'copied', 'success' );
 
-			// Intercom Event.
-			var metadata = {
-				title:  theTitleCased.val(),
+			Intercom( 'trackEvent', 'TitleCaseIt', {
+				title: theTitleCased.val(),
 				copied: 'YES',
-				email: "TitleCaseIt@ahmadawais.com",
-			};
-			Intercom( 'trackEvent', 'TitleCaseIt', metadata );
+				email: 'TitleCaseIt@ahmadawais.com',
+			} );
 		});
-
-
-		/**
-		 * Clipboard.js
-		 *
-		 * @since 1.0.1
-		 */
-		// Define the button as CB,js
-		var clipboard = new Clipboard( '.btn' );
-		$( '.btn' ).on( 'click', function( e ) {
-				e.preventDefault();
-				clipboard.on( 'success', function( e ) {
-					// console.info('Action:', e.action);
-					// console.info('Text:', e.text);
-					// console.info('Trigger:', e.trigger);
-
-					e.clearSelection();
-
-					showTooltip( e.trigger, 'COPIED! 💯' );
-					// $( '.btn' ).html( '💯 COPIED!' );
-
-					e.clearSelection();
-
-					// Analytics.
-					ga( 'send', 'event', 'TitleCaseIt', 'copied', 'success' );
-
-					// Intercom Event.
-					var metadata = {
-						title:  e.text,
-						copied: 'YES',
-						email: "TitleCaseIt@ahmadawais.com",
-					};
-					Intercom( 'trackEvent', 'TitleCaseIt', metadata );
-				} );
-
-				clipboard.on( 'error', function( e ) {
-						showTooltip( e.trigger, 'Error! Use the latest browser. Works best in Chrome!' );
-						// console.error( 'Action:', e.action );
-						// console.error( 'Trigger:', e.trigger );
-
-						// Analytics.
-						ga( 'send', 'event', 'TitleCaseIt', 'copied', 'fail' );
-				} );
-		} );
-
-
 
 		/**
 		 * Google Analytics.
@@ -168,9 +129,6 @@ $( document ).ready( function() {
 		 * @since  1.0.0
 		 */
 		function gaOBLClick( event ) {
-			// Console Log.
-			// console.log( 'OutBoundLink Clicked' );
-
 			ga( 'send', 'event', {
 				eventCategory: 'Outbound Link',
 				eventAction: 'click',
