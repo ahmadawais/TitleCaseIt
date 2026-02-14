@@ -114,7 +114,7 @@ h1 > i {
  padding: 30px;
  padding: 3rem;
  text-align: left;
- box-shadow: 0 27px 55px 0 rgba(0, 0, 0, 0.3), 0 17px 17px 0 rgba(0, 0, 0, 0.15);
+ box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
 }
 
 .aa_case__convert {
@@ -135,7 +135,7 @@ h1 > i {
  padding: 40px;
  padding: 4rem;
  text-align: left;
- box-shadow: 0 27px 55px 0 rgba(0, 0, 0, 0.3), 0 17px 17px 0 rgba(0, 0, 0, 0.15);
+ box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
  /* Chrome 10+, Saf5.1+ */
  /* FF3.6+ */
  /* IE10 */
@@ -200,8 +200,15 @@ h1 > i {
 }
 
 .aa_footer a {
-	color: #000;
+	color: #fff;
 	text-decoration: underline;
+	transition: all 0.4s linear;
+}
+
+.aa_footer a:hover {
+	background: #EDDE5D;
+	background: linear-gradient(90deg, #F09819 10%, #EDDE5D 90%);
+	color: #000;
 }
 
 /* ——— Responsive ——— */
