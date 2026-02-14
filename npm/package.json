@@ -1,5 +1,5 @@
 {
-	"name": "titlecaseit",
+	"name": "@ahmadawais/titlecaseit",
 	"version": "1.0.0",
 	"description": "Convert any text to title case.",
 	"main": "index.js",
