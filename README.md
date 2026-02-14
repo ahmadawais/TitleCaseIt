@@ -1,6 +1,6 @@
 # TitleCaseIt
 
-[![npm](https://img.shields.io/npm/v/titlecaseit.svg?style=flat-square)](https://www.npmjs.com/package/titlecaseit)
+[![npm](https://img.shields.io/npm/v/@ahmadawais/titlecaseit.svg?style=flat-square)](https://www.npmjs.com/package/@ahmadawais/titlecaseit)
 
 > Convert any text to title case.
 
@@ -13,7 +13,7 @@ Use the free web tool at [TitleCaseIt.AhmadAwais.com](https://titlecaseit.ahmada
 ## Install
 
 ```sh
-npm install titlecaseit
+npm install @ahmadawais/titlecaseit
 ```
 
 ## Usage
@@ -21,7 +21,7 @@ npm install titlecaseit
 ### Node.js (CommonJS)
 
 ```js
-const titleCaseIt = require('titlecaseit');
+const titleCaseIt = require('@ahmadawais/titlecaseit');
 
 titleCaseIt('the quick brown fox');
 //=> 'The Quick Brown Fox'
@@ -33,7 +33,7 @@ titleCaseIt('a tale of two cities');
 ### Node.js (ESM)
 
 ```js
-import titleCaseIt from 'titlecaseit';
+import titleCaseIt from '@ahmadawais/titlecaseit';
 
 titleCaseIt('the quick brown fox');
 //=> 'The Quick Brown Fox'
@@ -42,7 +42,7 @@ titleCaseIt('the quick brown fox');
 ### Browser (CDN)
 
 ```html
-<script src="https://unpkg.com/titlecaseit"></script>
+<script src="https://unpkg.com/@ahmadawais/titlecaseit"></script>
 <script>
   console.log(titleCaseIt('hello world'));
   //=> 'Hello World'
