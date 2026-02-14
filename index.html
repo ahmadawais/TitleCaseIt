@@ -2,14 +2,11 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 	<title>Title Case Converter | TitleCase It!</title>
 
 	<link href='https://fonts.googleapis.com/css?family=Merriweather:300,900' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="style.css">
-
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-
 
 	<link rel="apple-touch-icon" sizes="57x57" href="/favicons/apple-touch-icon-57x57.png">
 	<link rel="apple-touch-icon" sizes="60x60" href="/favicons/apple-touch-icon-60x60.png">
@@ -28,21 +25,22 @@
 	<link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#000000">
 	<link rel="shortcut icon" href="/favicons/favicon.ico">
 	<meta name="apple-mobile-web-app-title" content="TitleCaseIt">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 	<meta name="application-name" content="TitleCaseIt">
 	<meta name="msapplication-TileColor" content="#000000">
 	<meta name="msapplication-TileImage" content="/favicons/mstile-144x144.png">
 	<meta name="msapplication-config" content="/favicons/browserconfig.xml">
 	<meta name="description" content="Convert any text to title case instantly. Auto-copies to clipboard. Free, fast, no sign-up needed.">
 	<meta name="theme-color" content="#FF512F">
+
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-8PD00XM2B8"></script>
 	<script>
-	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-	  ga('create', 'UA-80009391-1', 'auto');
-	  ga('send', 'pageview');
-
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'G-8PD00XM2B8');
 	</script>
 </head>
 <body>
@@ -51,7 +49,7 @@
 	TitleCase It! <i>v 3.0</i>
 	<div class="aa_h1__inner">
 		by <a href="http://AhmadAwais.com/about/" target="_blank">Ahmad Awais.</a>
-		<span>{ If you like this, you'd love <a class="aa_accent_link" href="https://AhmadAwais.com/courses" target="_blank">Courses by Awais</a>!* }</span>
+		<span>If you like this, you'd love <a class="aa_accent_link" href="https://AhmadAwais.com/courses" target="_blank">Courses by Awais</a>!</span>
 	</div>
 </h1>
 
@@ -63,40 +61,32 @@
 			class="aa_case__untitled input_field"
 			type="text"
 			tabindex="1"
-			placeholder="Turn me into a title case"
+			placeholder="the quick brown fox jumps over the lazy dog"
+			autocomplete="off"
+			autocorrect="off"
+			spellcheck="false"
 		 />
 	</div>
 
+	<div class="aa_case__arrow" aria-hidden="true"></div>
+
 	<div class="aa_case__convert">
-		<div class="input_wrap">
+		<div class="input_wrap aa_case__output_wrap">
 			<input
 				id="converted"
 				class="aa_case__display input_field"
-				placeholder="Turn Me Into a Title Case"
+				placeholder="The Quick Brown Fox Jumps Over the Lazy Dog"
 				readonly
 				/>
+			<div id="copiedToast" class="aa_toast">Copied!</div>
 		</div>
 
-		<p class="aa_case__copy" >
-			<span>TIP:</span> Type or paste your title above. It auto-copies to your clipboard after you stop typing, or press <span>Enter</span> to copy instantly.
+		<p class="aa_case__copy">
+			<span>TIP</span> Auto-copies to clipboard. Press <span>Enter</span> to copy now.
 		</p>
 	</div>
 </form>
 
-<footer class="aa_footer">
-	Check out <a href="https://AhmadAwais.com/courses" target="_blank">Courses by Awais</a>!
-</footer>
-
-<script type="text/javascript" src="custom.js"></script>
-
-<script>
-  window.intercomSettings = {
-  	"hide_default_launcher": true,
-    app_id: "fnp2uaxg",
-	name: "TitleCaseIt Usage",
-	email: "TitleCaseIt@ahmadawais.com",
-  };
-</script>
-<script>(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/fnp2uaxg';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()</script>
+<script src="custom.js"></script>
 </body>
 </html>
