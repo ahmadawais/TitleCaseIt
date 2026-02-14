@@ -39,16 +39,6 @@ titleCaseIt('the quick brown fox');
 //=> 'The Quick Brown Fox'
 ```
 
-### Browser (CDN)
-
-```html
-<script src="https://unpkg.com/@ahmadawais/titlecaseit"></script>
-<script>
-  console.log(titleCaseIt('hello world'));
-  //=> 'Hello World'
-</script>
-```
-
 ## How It Works
 
 Words like `a`, `an`, `the`, `and`, `but`, `or`, `for`, `nor`, `on`, `at`, `to`, `by`, `in`, `of`, `per`, `vs`, `via`, `en`, `as`, `if` are kept lowercase unless they are the first or last word. Words with internal capitals (like `iPhone`) or dots (like `U.S.A.`) are left unchanged.

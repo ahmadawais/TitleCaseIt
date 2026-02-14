@@ -58,14 +58,14 @@ $( document ).ready( function() {
 			}
 
 			// Analytics.
-			ga( 'send', 'event', 'TitleCaseIt', 'copied', 'success' );
-
-			// Intercom Event.
-			Intercom( 'trackEvent', 'TitleCaseIt', {
-				title: text,
-				copied: 'YES',
-				email: 'TitleCaseIt@ahmadawais.com',
-			} );
+			try {
+				ga( 'send', 'event', 'TitleCaseIt', 'copied', 'success' );
+				Intercom( 'trackEvent', 'TitleCaseIt', {
+					title: text,
+					copied: 'YES',
+					email: 'TitleCaseIt@ahmadawais.com',
+				} );
+			} catch(e) {}
 		}
 
 		/**
@@ -103,13 +103,14 @@ $( document ).ready( function() {
 		var theTitleCased = $( '.aa_case__display' );
 
 		theTitleCased.select( function() {
-			ga( 'send', 'event', 'TitleCaseIt', 'copied', 'success' );
-
-			Intercom( 'trackEvent', 'TitleCaseIt', {
-				title: theTitleCased.val(),
-				copied: 'YES',
-				email: 'TitleCaseIt@ahmadawais.com',
-			} );
+			try {
+				ga( 'send', 'event', 'TitleCaseIt', 'copied', 'success' );
+				Intercom( 'trackEvent', 'TitleCaseIt', {
+					title: theTitleCased.val(),
+					copied: 'YES',
+					email: 'TitleCaseIt@ahmadawais.com',
+				} );
+			} catch(e) {}
 		});
 
 		/**
