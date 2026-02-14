@@ -30,19 +30,3 @@ Convert your title and headings into Title Case. If you write lots and lots of c
 Licensed under GNU GPL v2.0. Copyright (C) [Ahmad Awais](http://AhmadAwais.com/).
 
 
-
-<br />
-<br />
-<p align="center">
-<strong>For anything else, tweet at <a href="https://twitter.com/MrAhmadAwais/" target="_blank" rel="noopener noreferrer">@MrAhmadAwais</a></strong>
-</p>
-
-<div align="center">
-	<p>I have released a video course to help you become a better developer — <a href="https://VSCode.pro/?utm_source=GitHubFOSS" target="_blank">Become a VSCode Power User →</a></p>
-    <br />
-  <a href="https://VSCode.pro/?utm_source=GitHubFOSS" target="_blank">
-  <img src="https://raw.githubusercontent.com/ahmadawais/shades-of-purple-vscode/master/images/vscodeproPlay.jpg" /><br>VSCode</a>
-
-  _<small><a href="https://VSCode.pro/?utm_source=GitHubFOSS" target="_blank">VSCode Power User Course →</a></small>_
-</div>
-
